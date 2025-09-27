@@ -1,9 +1,28 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    double pi = 0.0;
-    int x = 0;
+    double pi = 0.0;    // 累加的起始值（初始設成0.0）
+    int x = 0;      // 初始化計數器（總共用了幾項？）
+    double sign = 1.0;  // 正負號，+1, -1 交替
 
+    for (int i = 0;; ++i) { // 無窮迴圈 
+        double term = sign * 4.0 / (2 * i + 1);
+        pi += term; // 累加近似值
+        x = i + 1;  // 紀錄目前用了幾項
+
+        if (fabs(pi - 3.14159) < 0.000005) {
+            break;
+        }
+
+        sign = -sign; // 切換正負號
+    }
+
+    printf("PI = %.5f\n", pi);
     printf("x = %d\n", x);
     return 0;
 }
+
+// 第10行 在算 Gregory–Leibniz 級數 的第 i 項：term= +-(4)/(2i+1)
+
+// 第14行 fabs：取絕對值，判斷「目前近似值 pi」與目標常數 3.14159 的差是否 < 5e-6。
