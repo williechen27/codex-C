@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main() {
+    double pi = 0.0;
+    int x = 0;
+
+    printf("x = %d\n", x);
+    return 0;
+}
