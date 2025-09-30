@@ -26,3 +26,36 @@ int main() {
 // 第10行 在算 Gregory–Leibniz 級數 的第 i 項：term= +-(4)/(2i+1)
 
 // 第14行 fabs：取絕對值，判斷「目前近似值 pi」與目標常數 3.14159 的差是否 < 5e-6。
+
+
+/* version 1 */
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double pi = 0.0;       // 累加中的 π 近似值（起始為 0）
+    double sign = 1.0;     // 正負號交替：+1, -1, +1, ...
+    int x = 0;             // 已累加的項數（最後輸出用）
+
+    // 也可定義目標常數與門檻
+    const double target = 3.14159;
+    const double eps    = 0.000005;
+
+    // 若你想用固定「4.0」這個因子，也可以保留：
+    const double FOUR = 4.0;  // (不要寫 4.0f；f 後綴是 float)
+
+    for (int i = 0; ; ++i) {                // 用 for 迴圈，不設上限，靠 break 結束
+        double term = sign * (FOUR / (2 * i + 1));
+        pi += term;
+        x = i + 1;                          // 已使用的項數
+
+        if (fabs(pi - target) < eps) {      // 收斂條件
+            break;
+        }
+        sign = -sign;                       // 正負號切換
+    }
+
+//    printf("PI = %.5f\n", pi);              // 輸出到小數 5 位
+    printf("x = %d\n", x);                  // 累加了幾項
+    return 0;
+}
