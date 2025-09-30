@@ -1,0 +1,34 @@
+#include <stdio.h>
+void printSpaces(int);
+int power(int);
+
+int main() {
+	int n=7;
+	int i,j;
+	
+	for(i=1; i<=n; i++){
+        printSpaces(n-i);
+        for(j=0; j<i; j++)
+			printf("%d ",i);
+		printf("\n");
+	}
+
+	printf("I want to calculate %d! = ", 10);
+	printf("%d", power(10));
+
+	return 0;
+}
+
+void printSpaces(int n) {
+    if (n > 0) {
+        putchar(' ');
+        printSpaces(n - 1); // 遞迴呼叫
+	}
+}
+
+int power(int n) {
+	if(n>1)
+		return n*power(n-1);
+	else
+		return 1;
+}
