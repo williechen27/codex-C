@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void swap(char a, char b) {
+    char tmp;
+    tmp=a;
+    a=b;
+    b=tmp;
+    printf("a at %p, b at %p\n", &a, &b);
+    return;
+}
+
+int main() {
+    char a='a';
+    char b='b';
+    swap(a,b);
+    printf("a = %c, b = %c\n", a, b);
+    printf("a at %p, b at %p\n", &a, &b);
+    return 0;
+}
+// 在 Swap func 裡操作的a和b，其實是和 main func 裡的a和b不一樣的
