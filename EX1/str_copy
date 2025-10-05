@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void str_cpy(char a[], char b[], int len) {
+    for(int i=0; i<len; i++) {
+        b[i]=a[i];
+    }
+    b[len]=0;
+    return;  // 因為回傳型別為void
+}
+
+int main() {
+    char a[]="abcdef";
+    int len=sizeof(a)/sizeof(a[0]);
+    char b[len];
+    str_cpy(a, b, len);
+    printf("a=%s, b=%s\n", a, b);
+    return 0;  // 還是維持傳統習慣
+}
