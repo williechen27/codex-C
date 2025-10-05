@@ -16,3 +16,29 @@ int main() {
     printf("a=%s, b=%s\n", a, b);
     return 0;  // 還是維持傳統習慣
 }
+
+/* compare to "Swap" */
+#include <stdio.h>
+
+void str_copy(char a[], char b[], int len) {
+    printf("in str_cpy function--\n");
+    printf("a   at %p, b    at %p\n", &a, &b);
+    printf("a[0] at %p, b[0] at %p\n", &a[0], &b[0]);
+    for(int i=0; i<len; i++) {
+        b[i]=a[i];
+    }
+    b[len]=0;
+    return;
+}
+
+int main() {
+    char a[]="abcdef";
+    int len =sizeof(a)/sizeof(a[0]);
+    char b[len];
+    str_copy(a, b, len);
+    printf("in str_cpy function--\n");
+    printf("a   at %p, b    at %p\n", &a, &b);
+    printf("a[0] at %p, b[0] at %p\n", &a[0], &b[0]);
+    printf("a = %s, b = %s\n", a, b);
+}
+// 相對於Swap，Copy指的位置是一樣的！所以array的變數的值是一個記憶體位址
