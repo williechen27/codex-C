@@ -2,7 +2,7 @@
 
 int str_compare(char a[], char b[]) {
     int eq=1;
-    for(int i=0, j=0; a[i]; i++, j++) {
+    for(int i=0, j=0; a[i]; i++, j++) {  // 此只考慮a[i]的條件為：保證b不比a長
         if(a[i]!=b[j]) {
             eq=0;
             break;
