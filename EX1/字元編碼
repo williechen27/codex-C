@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    char a[100];  //假設輸入字串長度不超過 100
+    if (scanf("%99s", a) != 1) {  // %99s 可防止緩衝區溢位：最多讀 99 個字元，留1格給 '\0'
+        return 0;
+    }
+
+    for (int i = 0; a[i] != '\0';) {  // 注意這個for迴圈沒有遞增式，因為i會在迴圈內(下面的 while)遞增
+        char current = a[i];  // 把目前要統計的一段(run)的字元存到current，之後會把和current一樣的連續字元數量累加
+        int count = 0;  // 對這一段字元的計數器，初始化為 0
+        while (a[i] != '\0' && a[i] == current) {
+            ++count;
+            ++i;
+        }
+        // 只要還沒遇到字串結尾，且當前字元等於 current，就持續：
+             count 加 1（這一段又多了一個字元）；
+             i 前進到下一個位置。
+           這個 while 跑完時，i 剛好停在下一段的第一個字元（或是 '\0'）
+        printf("%c%d", current, count);
+    }
+    printf("\n");
+    return 0;
+}
