@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char a[10];
+    scanf("%s", a);  //從標準輸入讀取字串
+    //請開始操作變數a
+
+    int v = 0;
+    for (int i = 0; i < 8; ++i) {          // 把二進位累加成整數
+        v = v * 2 + (a[i] - '0');
+    }
+
+    int hi = v / 16;                        // 高位 nibble
+    int lo = v % 16;                        // 低位 nibble
+
+    if (hi == 0) {                          // 去前導零（全零時印 0）
+        a[0] = (lo < 10) ? ('0' + lo) : ('A' + lo - 10);
+        a[1] = '\0';
+    } else {
+        a[0] = (hi < 10) ? ('0' + hi) : ('A' + hi - 10);
+        a[1] = (lo < 10) ? ('0' + lo) : ('A' + lo - 10);
+        a[2] = '\0';
+    }
+
+    printf("%s\n", a);
+    return 0;
+}
