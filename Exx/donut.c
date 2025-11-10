@@ -55,7 +55,7 @@ int main() {
 // 3. ./donut
 // 若出現error，因為終端機提示符"~"，代表找不到要找的檔案，可能放在其他資料夾。所以要找出檔案在哪，並cd過去
 // 1. gcc --version
-// a. cd 資料夾(donut.c)
+// a. cd 資料夾(Documents)
 // b. ls
 // 2. gcc donut.c -o donut -lm
 // 3. ./dount
