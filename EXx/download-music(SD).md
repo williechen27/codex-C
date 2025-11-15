@@ -10,3 +10,9 @@ yt-dlp \
   --restrict-filenames \        # 安全檔名
   -o "/Volumes/MUSICSD/%(title)s.%(ext)s" \
   "PASTE_YOUTUBE_URL_HERE"      # 貼上連結
+
+// 好下指令格式，不換行
+yt-dlp -x --audio-format mp3 --audio-quality 0 \
+  --embed-thumbnail --add-metadata --restrict-filenames \
+  -o "/Volumes/MUSICSD/%(title)s.%(ext)s" \
+  "
