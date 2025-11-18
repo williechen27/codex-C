@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    string first_name = "Heath Andrew";
+    string last_name = " Ledger";
+    string full_name = first_name.append(last_name);
+    cout << full_name << endl;
+    
+    int max_index = full_name.length()-1;           //找出最大數，以其設為欄寬度
+    int width = to_string(max_index).length();      //因為18，所以欄寬為長度為2的字串
+    
+    for (int i=0; i<full_name.length(); i++) {
+        cout << "[" << setw(width) << i << "] = "   // 索引欄位對齊
+        << full_name[i] << endl;
+    }
+    return 0;
+}
