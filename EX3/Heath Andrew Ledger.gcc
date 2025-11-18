@@ -9,6 +9,8 @@ int main() {
     string last_name = " Ledger";
     string full_name = first_name.append(last_name);
     cout << full_name << endl;
+    cout << "length " << full_name.length() << endl;
+    cout << "size " << full_name.size() << endl;
     
     int max_index = full_name.length()-1;           //找出最大數，以其設為欄寬度
     int width = to_string(max_index).length();      //因為18，所以欄寬為長度為2的字串
