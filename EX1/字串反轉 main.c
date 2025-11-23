@@ -3,8 +3,8 @@
 
 int main() {
     char a[100];  // 假設輸入字串長度不超過 100
-    if (scanf("%99s", a) != 1) {
-        return 0;
+    if (scanf("%99s", a) != 1) {    // 此句意思：如果回傳值不是1，回傳0
+        return 0;    // return 1(成功); return 0(失敗)
     }
 
     size_t len = strlen(a);
