@@ -7,7 +7,7 @@ int main() {
         return 0;    // return 1(成功); return 0(失敗)
     }
 
-    size_t len = strlen(a);
+    size_t len = strlen(a);    // size_t 為 size type
     for (size_t i = 0; i < len / 2; ++i) {
         char tmp = a[i];
         a[i] = a[len - 1 - i];
