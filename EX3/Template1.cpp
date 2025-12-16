@@ -12,7 +12,7 @@ class mypair {
         m_first = t;
         m_second = u;
     }
-    auto bigger() {
+    auto bigger() {    // C++14: "auto"
         return (m_first>m_second)?m_first:m_second;
     }
 };
